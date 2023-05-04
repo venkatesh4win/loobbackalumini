@@ -105,7 +105,7 @@ export class CollegeController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id:string,
     @param.filter(College, {exclude: 'where'}) filter?: FilterExcludingWhere<College>
   ): Promise<College> {
     return this.collegeRepository.findById(id, filter);
@@ -116,7 +116,7 @@ export class CollegeController {
     description: 'College PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -134,7 +134,7 @@ export class CollegeController {
     description: 'College PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() college: College,
   ): Promise<void> {
     await this.collegeRepository.replaceById(id, college);
@@ -144,7 +144,7 @@ export class CollegeController {
   @response(204, {
     description: 'College DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.collegeRepository.deleteById(id);
   }
 }

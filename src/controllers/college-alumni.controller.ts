@@ -39,7 +39,7 @@ export class CollegeAlumniController {
     },
   })
   async find(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.query.object('filter') filter?: Filter<Alumni>,
   ): Promise<Alumni[]> {
     return this.collegeRepository.alumni(id).find(filter);
@@ -54,7 +54,7 @@ export class CollegeAlumniController {
     },
   })
   async create(
-    @param.path.number('id') id: typeof College.prototype.id,
+    @param.path.string('id') id: typeof College.prototype.id,
     @requestBody({
       content: {
         'application/json': {
@@ -79,7 +79,7 @@ export class CollegeAlumniController {
     },
   })
   async patch(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -102,7 +102,7 @@ export class CollegeAlumniController {
     },
   })
   async delete(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.query.object('where', getWhereSchemaFor(Alumni)) where?: Where<Alumni>,
   ): Promise<Count> {
     return this.collegeRepository.alumni(id).delete(where);

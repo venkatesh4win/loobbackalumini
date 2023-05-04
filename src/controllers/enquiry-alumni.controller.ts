@@ -31,7 +31,7 @@ export class EnquiryAlumniController {
     },
   })
   async getAlumni(
-    @param.path.number('id') id: typeof Enquiry.prototype.id,
+    @param.path.string('id') id: typeof Enquiry.prototype.id,
   ): Promise<Alumni> {
     return this.enquiryRepository.alumni(id);
   }

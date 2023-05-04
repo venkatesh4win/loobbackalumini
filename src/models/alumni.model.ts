@@ -4,11 +4,11 @@ import {Enquiry} from './enquiry.model';
 @model({settings: {strict: false}})
 export class Alumni extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
     generated: true,
   })
-  id?: number;
+  id?: string;
 
   @property({
     type: 'string',
@@ -79,9 +79,9 @@ export class Alumni extends Entity {
   enquiries: Enquiry[];
 
   @property({
-    type: 'number',
+    type: 'string',
   })
-  collegeId?: number;
+  collegeId?: string;
   // Define well-known properties here
 
   // Indexer property to allow additional data

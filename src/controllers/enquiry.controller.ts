@@ -105,7 +105,7 @@ export class EnquiryController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(Enquiry, {exclude: 'where'}) filter?: FilterExcludingWhere<Enquiry>
   ): Promise<Enquiry> {
     return this.enquiryRepository.findById(id, filter);
@@ -116,7 +116,7 @@ export class EnquiryController {
     description: 'Enquiry PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -134,7 +134,7 @@ export class EnquiryController {
     description: 'Enquiry PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() enquiry: Enquiry,
   ): Promise<void> {
     await this.enquiryRepository.replaceById(id, enquiry);
@@ -144,7 +144,7 @@ export class EnquiryController {
   @response(204, {
     description: 'Enquiry DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.enquiryRepository.deleteById(id);
   }
 }

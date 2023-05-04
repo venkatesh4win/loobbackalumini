@@ -4,11 +4,11 @@ import {Alumni} from './alumni.model';
 @model({settings: {strict: false}})
 export class College extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
     generated: true,
   })
-  id?: number;
+  id?: string;
 
   @property({
     type: 'string',
